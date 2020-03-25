@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #616161;
+  height: 67px;
+  padding-left: 65px;
+  width: 100%;
+}
+
+.navbar strong {
+  font-size: 32px;
+}
+
+#stats-logo {
+  display: flex;
+  justify-content: center;
+}
+
+#stats-logo img {
+  width: 52.34px;
+  height: 45px;
+  margin-right: 15px;
+
+}
+
+.navbar-links {
+  /* display: flex;
+  justify-content: flex-end;
+  align-items: center; */
+  margin: auto;
+}
+
+.navbar-links a img {
+  width: 35px;
+  height: 35px;
+  padding-left: 30px;
+  margin-top: 1px;
+}

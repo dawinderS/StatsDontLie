@@ -1,0 +1,31 @@
+{
+  "name": "statsdontlie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
+
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "d3": "^5.15.0",
+    "d3-tip": "^0.9.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawinderS/StatsDontLie.git"
+  },
+  "author": "Dawinder Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dawinderS/StatsDontLie/issues"
+  },
+  "homepage": "https://github.com/dawinderS/StatsDontLie#readme"
+}
