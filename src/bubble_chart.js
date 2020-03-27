@@ -29,7 +29,7 @@ export const bubble_chart = () => {
   // let circle = svg.append('circle').attr('r', 100)
   
   let pack = d3.pack().size([400 - 5,400 - 5]).padding(3);
-  let data = stats.sort((a,b) => b['23'] - a['23'])
+  let data = stats.sort((a,b) => b['22'] - a['22'])
   let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['22']);
 
   const root = pack(hierarchy1);
