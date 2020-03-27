@@ -1,35 +1,16 @@
 import stats from '../data/stats.json';
-// export const bubble_chart = () => {
-//   let margin = { left: 100, right: 100, top: 20, bottom: 150 }
-
-//   let width = 50;
-//   let height = 100;
-  
-//   let flag = true;
-
-//   let bubble_chart = d3.select('#top_per')
-//     .append('svg')
-//     .attr('height', height + margin.top + margin.bottom)
-//     .attr('width', width + margin.left + margin.right)
-//     .style('background-color', 'white')
-//     .text('bino')
-//     .text('bino')
-//     .style('color', 'black')
-//     // .style('padding', '100px')
 
 
-// }
 export const bubble_chart = () => {
   let svg = d3.select('#top_per').append('svg')
-    .attr('width', '95%')
-    .attr('height', 500)
+    .attr('width', '100%')
+    .attr('height', 700)
     .attr('style', 'border: thin red solid')
-    .style('background-color', 'white')
+    // .style('background-color', 'white')
   
-  // let circle = svg.append('circle').attr('r', 100)
   
-  let pack = d3.pack().size([400 - 5,400 - 5]).padding(3);
-  let data = stats.sort((a,b) => b['22'] - a['22'])
+  let pack = d3.pack().size([800, 750]).padding(3);
+  let data = stats.sort((a,b) => b['22'] - a['22']);
   let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['22']);
 
   const root = pack(hierarchy1);
@@ -37,12 +18,31 @@ export const bubble_chart = () => {
   const leaf = svg.selectAll("g")
     .data(root.leaves())
     .join("g")
-    .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
+    .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`)
+    // .attr("transform", d => `translate(0,0)`)
 
   leaf.append("circle")
-    .attr("r", d => d.r)
-    .attr("fill-opacity", 0.7)
-    // .attr("fill", 'navy');
+    .attr("r", d => {
+      if (d.data['22'] > 28) {
+        return d.data['22'] + 30
+      } else if (d.data['22'] > 25) {
+        return d.data['22'] + 25
+      } else if (d.data['22'] > 20) {
+        return d.data['22'] + 20
+      } else {
+        return d.data['22'] + 20
+      }
+      })
+      // d.data['22'] + 18)
+    .attr("fill-opacity", 0.95)
+    .attr("fill", d => d.data.color)
+  
+
+  leaf.append("text")
+    .text(d => d.data['22'])
+
+  // let vis = leaf.selectAll("circle")
+  //   .data(nodes, d => d['2'])
 
   // leaf.append("clipPath")
   //   .append("use")
