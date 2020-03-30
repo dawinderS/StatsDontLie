@@ -36,3 +36,13 @@
   padding-left: 30px;
   margin-top: 1px;
 }
+
+/* 
+bar graph line edit
+*/
+line#limit {
+  stroke: #FED966;
+  stroke-width: 2;
+  stroke-dasharray: 3 6;
+}
+

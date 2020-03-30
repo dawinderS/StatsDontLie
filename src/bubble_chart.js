@@ -1,13 +1,11 @@
 import stats from '../data/stats.json';
 
-
 export const bubble_chart = () => {
   let svg = d3.select('#top_per').append('svg')
     .attr('width', '100%')
     .attr('height', 700)
     .attr('style', 'border: thin red solid')
     // .style('background-color', 'white')
-  
   
   let pack = d3.pack().size([800, 750]).padding(3);
   let data = stats.sort((a,b) => b['22'] - a['22']);

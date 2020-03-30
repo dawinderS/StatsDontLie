@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./dist/images/swish-logo.png" type="image/x-icon">
   <link href='https://fonts.googleapis.com/css?family=Rajdhani' rel='stylesheet'>
   <link href="./dist/stylesheets/main.css" rel="stylesheet">
   <link href="./dist/stylesheets/reset.css" rel="stylesheet">
@@ -16,6 +17,12 @@
       <img src="./dist/images/swish-logo.png">
       <strong>Stats Don't Lie</strong>
     </div>
+    
+    <div class="audio">
+      <button class="button" onclick="document.getElementsByTagName('audio')[0].play();">Music</button>
+      <button onclick="document.getElementsByTagName('audio')[0].pause();">Mute</button>
+      <audio autoplay preload="auto" loop src="dist/images/kobe.mp3"></audio>
+    </div>
     <div class="navbar-links">
       <a target="_blank" href="https://github.com/dawinderS/StatsDontLie"><img src="./dist/images/github-logo.png"
           alt="github"></a>
@@ -27,8 +34,11 @@
     <div id='top_per'>
 
     </div>
-    <div id='outer'>
-      
+    <div id='stat_bar'>
+
+    </div>
+    <div id='details'>
+
     </div>
   </div>
 </body>
