@@ -1,3 +1,8 @@
+# Stats Don't Lie
+
+A comprehensive data visual of the top NBA players of the current season (2019-2020 fully updated). Statistics vary between total efficiency, points, rebounds, and assists. Clicking on indvidual player shows a fully detailed overlook on player's averages so far.
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/dawinderS/StatsDontLie/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
