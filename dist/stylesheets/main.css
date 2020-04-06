@@ -46,3 +46,42 @@ line#limit {
   stroke-dasharray: 3 6;
 }
 
+#stat_bar svg {
+  min-height: 780px;
+}
+
+#details svg {
+  min-height: 150px;
+  
+}
+
+#details {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: 500px;
+}
+
+.detail {
+  min-height: 90px;
+  max-width: 900px;
+  margin-left: 85px;
+  margin-top: 30px;
+}
+
+#stat_bar {
+  display: flex;
+  justify-content: center;
+}
+
+#top_per {
+  display: flex;
+  justify-content: center;
+}
+
+#border {
+  width: 100%;
+  border-bottom: 1px solid #616161;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

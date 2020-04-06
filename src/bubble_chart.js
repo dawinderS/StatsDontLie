@@ -2,12 +2,12 @@ import stats from '../data/stats.json';
 
 export const bubble_chart = () => {
   let svg = d3.select('#top_per').append('svg')
-    .attr('width', '100%')
+    .attr('width', 900)
     .attr('height', 700)
-    .attr('style', 'border: thin red solid')
+    .attr('style', 'border: thin white solid')
     // .style('background-color', 'white')
   
-  let pack = d3.pack().size([800, 750]).padding(3);
+  let pack = d3.pack().size([900, 700]).padding(3);
   let data = stats.sort((a,b) => b['22'] - a['22']);
   let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['22']);
 
