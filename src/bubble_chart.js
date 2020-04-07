@@ -2,9 +2,10 @@ import stats from '../data/stats.json';
 
 export const bubble_chart = () => {
   let svg = d3.select('#top_per').append('svg')
-    .attr('width', 900)
+    .attr('class', 'bubble_svg')
+    .attr('width', 1000)
     .attr('height', 700)
-    .attr('style', 'border: thin white solid')
+    // .attr('style', 'border: thin white solid')
     // .style('background-color', 'white')
   
   let pack = d3.pack().size([900, 700]).padding(3);

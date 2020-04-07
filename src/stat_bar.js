@@ -3,10 +3,10 @@ import stats from "../data/stats.json";
 export const stat_bar = () => {
   const margin = 110;
   const height = 800;
-  const width = 700;
+  const width = 800;
 
   let svg2 = d3.select("#stat_bar").append("svg")
-    .attr("width", 900)
+    .attr("width", 1000)
     // .attr("min-height", height)
     .attr("style", "border: thin white solid");
 
@@ -86,18 +86,57 @@ export const stat_bar = () => {
     })
 
     .on("click", function(s, i) {
-      const statRect = d3.select("#details").append('rect')
+      const nameRect = d3.select("#details")
+        .append('rect')
         .attr('class', 'detail')
         .attr('width', '100%')
-        .attr('height', 100)
+        .attr('height', 50)
+        .attr('style', 'border: thin #616161 solid')
+
+      const statRect = d3.select("#details")
+        .append('rect')
+        .attr('class', 'detail2')
+        .attr('width', '100%')
+        .attr('height', 50)
+        .attr('style', 'border: thin #616161 solid')
+      const statRect2 = d3.select("#details")
+        .append('rect')
+        .attr('class', 'detail2')
+        .attr('width', '100%')
+        .attr('height', 50)
         .attr('style', 'border: thin #616161 solid')
       
-  
+      nameRect
+        .append('text')
+        .attr('class', 'player_details')
+        .style('font-size', '28px')
+        .text(d => rTopPts[i]['2'])
+        .style('fill', d => rTopPts[i]['color'])
+      nameRect
+        .append('text')
+        .attr('class', 'player_details2')
+        .style('font-size', '18px')
+        .text(d => 'Team: ' + rTopPts[i]['3'])
+        .style('fill', d => rTopPts[i]['color'])
+
+      statRect
+        .append('text')
+        .attr('class', 'player_details3')
+        .style('font-size', '16px')
+        .text('GP  MIN  FGM  FGA  FGPCT  FG3M  FG3A  FG3PCT  FTA  FTPCT  OREB  DREB  REB  AST  STL  BLK  TO  PTS')
+      statRect2
+        .append('text')
+        .attr('class', 'player_details4')
+        .style('font-size', '18px')
+        .text(d => rTopPts[i]['4'] + '   ' + rTopPts[i]['5'] + '    ' + rTopPts[i]['6'] + '    ' + rTopPts[i]['7'] + '    ' + rTopPts[i]['8'] + '   ' + rTopPts[i]['9'] + ' ' + rTopPts[i]['10'] + ' ' + rTopPts[i]['11'] + ' ' + rTopPts[i]['12'] + ' ' + rTopPts[i]['13'] + ' ' + rTopPts[i]['14'] + ' ' + rTopPts[i]['15'] + ' ' + rTopPts[i]['16'] + ' ' + rTopPts[i]['17'] + ' ' + rTopPts[i]['18'] + ' ' + rTopPts[i]['19'] + ' ' + rTopPts[i]['20'] + ' ' + rTopPts[i]['21'] + ' ' + rTopPts[i]['22'])
+        // .text(d => rTopPts[i]['2'])
+      
+      window.scrollBy(0, 300);
     });
 
   svg2.selectAll('rect')
     .transition()
-    .duration(1000)
+    .duration(800)
     .attr("x", d => xScale(d["22"]))
     .attr("width", d => xScale(d["22"]))
     .attr("x", (actual, i, rTopPts) => yScale(rTopPts[i]["22"]))
