@@ -107,10 +107,9 @@ line#limit {
   background: black;
 }
 
-.bubble_svg {
+#top_per {
   background: url('../images/court.JPG');
-  background-repeat: no-repeat;
-  background-size: '100%' 500px;
+  background-size: 1000px 650px;
 }
 
 #border {
@@ -134,6 +133,7 @@ line#limit {
 
 .player_details2 {
   margin-left: 15px;
+  color: #FED966;
 }
 
 .player_details3 {
@@ -145,4 +145,7 @@ line#limit {
   /* word-spacing: 5px; */
   white-space: pre;
   /* width: 50px; */
+}
+
+.stat-circles {
 }
