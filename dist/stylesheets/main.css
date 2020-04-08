@@ -148,4 +148,5 @@ line#limit {
 }
 
 .stat-circles {
+  cursor: pointer;
 }
