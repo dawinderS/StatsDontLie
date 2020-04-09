@@ -3,8 +3,9 @@
   align-items: center;
   border-bottom: 1px solid rgb(206, 202, 202);
   height: 71px;
-  padding-left: 65px;
-  width: 100%;
+  /* padding-left: 65px; */
+  /* width: 100%; */
+  justify-content: space-around;
   /* background: #212121; */
 }
 
@@ -28,7 +29,7 @@
   /* display: flex;
   justify-content: flex-end;
   align-items: center; */
-  margin: auto;
+  /* margin: auto; */
 }
 
 .navbar-links a img {
@@ -68,6 +69,22 @@ line#limit {
   margin-bottom: 40px;
 }
 
+#deets svg {
+  min-height: 150px;  
+}
+
+#deets {
+  display: flex;
+  /* width: 100%; */
+  flex-direction: column;
+  width: 1000px;
+  /* min-height: 30px; */
+  justify-content: center;
+  align-items: center;
+  background: black;
+  /* margin-bottom: 40px; */
+}
+
 .detail {
   min-height: 40px;
   width: 1000px;
@@ -103,6 +120,7 @@ line#limit {
 
 #top_per {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background: black;
 }
@@ -114,7 +132,7 @@ line#limit {
 
 #border {
   display: flex;
-  width: 85%;
+  width: 90%;
   /* width: 1200px; */
   border-bottom: 1px solid #616161;
   border-bottom: 1px solid grey;

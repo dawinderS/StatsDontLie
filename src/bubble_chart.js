@@ -16,11 +16,6 @@ export const bubble_chart = () => {
 
   const root = pack(hierarchy1);
 
-  let simulation = d3.forceSimulation()
-    .force("center", d3.forceCenter().x(width / 2).y(height / 2))
-    .force("collide", d3.forceCollide().strength(.01).radius(30).iterations(1))
-    .force("charge", d3.forceManyBody().strength(0.5))
-
   const leaf = svg.selectAll("g")
     .data(root.leaves())
     .join("g")
@@ -31,31 +26,25 @@ export const bubble_chart = () => {
           let x = 0;
           let y = 0;
           if (i < 6 ) {
-            x = (i%6) * 145 + 140;
-            y = 125 * Math.floor(i / 6) + 115;
+            x = (i%6) * 140 + 140;
+            y = 120 * Math.floor(i / 6) + 115;
           } else if (i < 12) {
-            x = (i % 6) * 135 + 160;
-            y = 125 * Math.floor(i / 6) + 115;
-          } else if (i < 18) {
-            x = (i % 6) * 125 + 180;
+            x = (i % 6) * 123 + 190;
             y = 115 * Math.floor(i / 6) + 115;
+          } else if (i < 18) {
+            x = (i % 6) * 115 + 210;
+            y = 110 * Math.floor(i / 6) + 115;
           } else if (i < 24) {
-            x = (i % 6) * 115 + 200;
-            y = 109 * Math.floor(i / 6) + 115;
-          } else if (i < 30) {
-            x = (i % 6) * 105 + 220;
+            x = (i % 6) * 105 + 240;
             y = 105 * Math.floor(i / 6) + 115;
+          } else if (i < 30) {
+            x = (i % 6) * 95 + 260;
+            y = 100 * Math.floor(i / 6) + 115;
           }
-          console.log(i)
-          
+
           return "translate(" + [x,y] + ")"
         })
-      simulation.nodes(data)
-        .on('tick', function (d) {
-          leaf
-            .attr('cx', d => d.x)
-            .attr('cy', d => d.y + 1252)
-        })
+ 
       // document.querySelector('.leaves').style.display = 'none'
     })
 
@@ -72,25 +61,28 @@ export const bubble_chart = () => {
         return d.data['22'] + 15
       }
       })
-    .attr("fill-opacity", 0.90)
+    .attr("fill-opacity", 0.85)
     .attr("fill", d => 'black')
     .attr('stroke', d => d.data.color)
     .attr('stroke-width', d => 4)
     .on('click', function (s, i) {
-      const nameRect = d3.select("#details")
+      // if (document.getElementsByClassName('.bubble_svg').style.left = '500px') {
+      //   console.log('hello');
+      // }
+      const nameRect = d3.select("#deets")
         .append('rect')
         .attr('class', 'detail')
         .attr('width', '100%')
         .attr('height', 50)
       // .attr('style', 'border-top: thin #616161 solid')
 
-      const statRect = d3.select("#details")
+      const statRect = d3.select("#deets")
         .append('rect')
         .attr('class', 'detail2')
         .attr('width', '100%')
         .attr('height', 50)
       // .attr('style', 'border: thin #616161 solid')
-      const statRect2 = d3.select("#details")
+      const statRect2 = d3.select("#deets")
         .append('rect')
         .attr('class', 'detail3')
         .attr('width', '100%')
@@ -124,7 +116,7 @@ export const bubble_chart = () => {
         // .text(d => data[i]['4'] + '   ' + data[i]['5'] + '    ' + data[i]['6'] + '      ' + data[i]['7'] + '    ' + data[i]['8'] + '    ' + data[i]['9'] + '    ' + data[i]['10'] + ' ' + data[i]['11'] + ' ' + data[i]['12'] + ' ' + data[i]['13'] + ' ' + data[i]['14'] + ' ' + data[i]['15'] + ' ' + data[i]['16'] + ' ' + data[i]['17'] + ' ' + data[i]['18'] + ' ' + data[i]['19'] + ' ' + data[i]['20'] + ' ' + data[i]['21'] + ' ' + data[i]['22'])
         .text(d => 'Advanced:    Eff_Rank:  ' + data[i]['1'] + '    |    ' + 'Eff:  ' + data[i]['23'] + '    |    ' + 'Fg_Pct:  ' + data[i]['8'] + '    |    ' + 'Fg3_Pct:  ' + data[i]['11'] + '    |    ' + 'Ft_Pct:  ' + data[i]['14'])
 
-      window.scrollBy(0, 350);
+      window.scrollBy(0, 100);
     });
     
   leaf.append("text")
@@ -147,6 +139,12 @@ export const bubble_chart = () => {
   .style('text-anchor', 'middle')
   .style('font-size', d => d.r / 3.9)
   .text(d => d.data['2'].split(' ').slice(0,1))
+
+////////////////////////////////////////////////////////////////////////////////
+  const leaf2 = svg.selectAll("h")
+    .data(root.leaves())
+    .join("h")
+    .attr("transform", d => `translate(250,300)`)
 
   return svg.node();
 }
