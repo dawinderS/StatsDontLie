@@ -1,10 +1,12 @@
 .navbar {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #616161;
-  height: 67px;
-  padding-left: 65px;
-  width: 100%;
+  border-bottom: 1px solid rgb(206, 202, 202);
+  height: 71px;
+  /* padding-left: 65px; */
+  /* width: 100%; */
+  justify-content: space-around;
+  /* background: #212121; */
 }
 
 .navbar strong {
@@ -27,7 +29,7 @@
   /* display: flex;
   justify-content: flex-end;
   align-items: center; */
-  margin: auto;
+  /* margin: auto; */
 }
 
 .navbar-links a img {
@@ -46,3 +48,123 @@ line#limit {
   stroke-dasharray: 3 6;
 }
 
+#stat_bar svg {
+  min-height: 730px;
+}
+
+#details svg {
+  min-height: 150px;
+  
+}
+
+#details {
+  display: flex;
+  /* width: 100%; */
+  flex-direction: column;
+  width: 1000px;
+  min-height: 30px;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  margin-bottom: 40px;
+}
+
+#deets svg {
+  min-height: 150px;  
+}
+
+#deets {
+  display: flex;
+  /* width: 100%; */
+  flex-direction: column;
+  width: 1000px;
+  /* min-height: 30px; */
+  justify-content: center;
+  align-items: center;
+  background: black;
+  /* margin-bottom: 40px; */
+}
+
+.detail {
+  min-height: 40px;
+  width: 1000px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  background: black;
+  border-top: 2px solid white;
+  padding-top: 10px;
+  /* padding-left: 10px; */
+}
+.detail2 {
+  min-height: 30px;
+  /* margin-left: 10px; */
+  width: 1000px;
+  background: black;
+}
+.detail3 {
+  min-height: 30px;
+  /* margin-left: 10px; */
+  width: 1000px;
+  background: black;
+  padding-bottom: 8px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid white;
+}
+
+#stat_bar {
+  display: flex;
+  justify-content: center;
+  background: black;
+  /* display: none; */
+}
+
+#top_per {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: black;
+}
+
+#top_per {
+  background: url('../images/court.JPG');
+  background-size: 1000px 650px;
+}
+
+#border {
+  display: flex;
+  width: 90%;
+  /* width: 1200px; */
+  border-bottom: 1px solid #616161;
+  border-bottom: 1px solid grey;
+  margin: 10px 0px;
+}
+
+#stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar {
+  cursor: pointer;
+}
+
+.player_details2 {
+  margin-left: 15px;
+  color: #FED966;
+}
+
+.player_details3 {
+  /* word-spacing: 5px; */
+  white-space: pre;
+
+}
+.player_details4 {
+  /* word-spacing: 5px; */
+  white-space: pre;
+  /* width: 50px; */
+}
+
+.stat-circles {
+  cursor: pointer;
+}

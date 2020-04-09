@@ -3,32 +3,32 @@ import stats from "../data/stats.json";
 export const stat_bar = () => {
   const margin = 110;
   const height = 800;
-  const width = 700;
+  const width = 800;
 
   let svg2 = d3.select("#stat_bar").append("svg")
-    .attr("width", "100%")
-    .attr("height", height)
-    .attr("style", "border: thin white solid");
+    .attr("width", 1000)
+    // .attr("min-height", height)
+    // .attr("style", "border: thin white solid");
 
   const top25pts = stats.sort((a, b) => b["22"] - a["22"]).slice(0, stats.length / 2 - 10);
   
   const rTopPts = top25pts.reverse();
   const chart = svg2.append('g')
-    .attr('transform', `translate(${margin}, ${margin})`);
+    .attr('transform', `translate(${margin}, ${margin})`)
 
   const yScale = d3.scaleBand()
     .range([600, 0])
     .domain(rTopPts.map(s => s['2'].split(' ')[1]))
     .padding(0.4);
     
-  chart.append('g')
+  let yAxis = chart.append('g')
     .call(d3.axisLeft(yScale));
 
   const xScale = d3.scaleLinear()
     .range([0, width])
     .domain([16, 36])
 
-  chart.append('g')
+  let xAxis = chart.append('g')
     // .attr('transform', `translate(0, 700)`)
     .call(d3.axisTop(xScale).ticks(7))
 
@@ -37,20 +37,25 @@ export const stat_bar = () => {
     .enter()
     .append('g')
 
-    console.log(rTopPts)
-
+  xAxis.selectAll('text')
+    .style('font-size', '13px')
+  yAxis.selectAll('text')
+    .style('font-size', '13px')
+    // .style('font-style', 'italic')
+  
   barGroups
     .append("rect")
     .attr("class", "bar")
     .style("stroke", d => d.color)
     .style("stroke-width", 2)
-    .attr("fill-opacity", 0.25)
+    .attr("fill-opacity", 0.30)
     .attr("fill", d => d.color)
     .attr("x", d => xScale(d["22"]))
     .attr("y", d => yScale(d["2"].split(" ")[1]))
-    .attr("width", d => xScale(d["22"]))
+    .attr("width", d => 0)
     .attr("height", yScale.bandwidth())
     .attr("x", (actual, i, rTopPts) => yScale(rTopPts[i]["22"]))
+  
     .on("mouseenter", function(s, i) {
       d3.select(this)
         .transition()
@@ -60,7 +65,7 @@ export const stat_bar = () => {
 
       const x = xScale(rTopPts[i]["22"]);
 
-      line = chart
+      const line = chart
         .append("line")
         .attr("id", "limit")
         .attr("x1", x)
@@ -81,8 +86,62 @@ export const stat_bar = () => {
     })
 
     .on("click", function(s, i) {
+      const nameRect = d3.select("#details")
+        .append('rect')
+        .attr('class', 'detail')
+        .attr('width', '100%')
+        .attr('height', 50)
+        // .attr('style', 'border-top: thin #616161 solid')
+
+      const statRect = d3.select("#details")
+        .append('rect')
+        .attr('class', 'detail2')
+        .attr('width', '100%')
+        .attr('height', 50)
+        // .attr('style', 'border: thin #616161 solid')
+      const statRect2 = d3.select("#details")
+        .append('rect')
+        .attr('class', 'detail3')
+        .attr('width', '100%')
+        .attr('height', 50)
+        // .attr('style', 'border: thin #616161 solid')
       
+      nameRect
+        .append('text')
+        .attr('class', 'player_details')
+        .style('font-size', '28px')
+        .text(d => rTopPts[i]['2'])
+        .style('color', d => rTopPts[i]['color'])
+      nameRect
+        .append('text')
+        .attr('class', 'player_details2')
+        .style('font-size', '18px')
+        .text(d => 'Team: ' + rTopPts[i]['3'])
+        .style('color', d => rTopPts[i]['color'])
+
+      statRect
+        .append('text')
+        .attr('class', 'player_details3')
+        .style('font-size', '18px')
+        // .text('GP  MIN  FGM  FGA  FGPCT  FG3M  FG3A  FG3PCT  FTA  FTPCT  OREB  DREB  REB  AST  STL  BLK  TO  PTS')
+        .text(d => 'Pts:  ' + rTopPts[i]['22'] + '   |   ' + 'Reb:  ' + rTopPts[i]['17'] + '   |   ' + 'Ast:  ' + rTopPts[i]['18'] + '   |   ' + 'Stl:  ' + rTopPts[i]['19'] + '   |   ' + 'Blk:  ' + rTopPts[i]['20'] + '   |   ' + 'TOV:  ' + rTopPts[i]['21'] + '   |   ' + 'GP:  ' + rTopPts[i]['4'] + '   |   ' + 'Min:  ' + rTopPts[i]['5'])
+
+      statRect2
+        .append('text')
+        .attr('class', 'player_details4')
+        .style('font-size', '17px')
+        // .text(d => rTopPts[i]['4'] + '   ' + rTopPts[i]['5'] + '    ' + rTopPts[i]['6'] + '      ' + rTopPts[i]['7'] + '    ' + rTopPts[i]['8'] + '    ' + rTopPts[i]['9'] + '    ' + rTopPts[i]['10'] + ' ' + rTopPts[i]['11'] + ' ' + rTopPts[i]['12'] + ' ' + rTopPts[i]['13'] + ' ' + rTopPts[i]['14'] + ' ' + rTopPts[i]['15'] + ' ' + rTopPts[i]['16'] + ' ' + rTopPts[i]['17'] + ' ' + rTopPts[i]['18'] + ' ' + rTopPts[i]['19'] + ' ' + rTopPts[i]['20'] + ' ' + rTopPts[i]['21'] + ' ' + rTopPts[i]['22'])
+        .text(d => 'Advanced:    Eff_Rank:  ' + rTopPts[i]['1'] + '    |    ' + 'Eff:  ' + rTopPts[i]['23'] + '    |    ' + 'Fg_Pct:  ' + rTopPts[i]['8'] + '    |    ' + 'Fg3_Pct:  ' + rTopPts[i]['11'] + '    |    ' + 'Ft_Pct:  ' + rTopPts[i]['14'])
+      
+      window.scrollBy(0, 350);
     });
+
+  svg2.selectAll('rect')
+    .transition()
+    .duration(800)
+    .attr("x", d => xScale(d["22"]))
+    .attr("width", d => xScale(d["22"]))
+    .attr("x", (actual, i, rTopPts) => yScale(rTopPts[i]["22"]))
 
   barGroups
     .append("text")
@@ -90,27 +149,37 @@ export const stat_bar = () => {
     .attr("x", d => xScale(d["22"]) + 24)
     .attr("y", d => yScale(d["2"].split(" ")[1]) + 4 + yScale.bandwidth() / 2)
     .attr("text-anchor", "middle")
-    .text(d => d["22"]);
+    .text(d => d["22"])
+    .style('fill', 'white')
   
-    barGroups
+  barGroups
     .append("text")
     .attr("class", "value")
     .attr("x", d => xScale(d["22"]) / 2)
     .attr("y", d => yScale(d["2"].split(" ")[1]) + 5 + yScale.bandwidth() / 2)
     .attr("text-anchor", "middle")
+    .style('fill', 'white')
+    .style('font-style', 'italic')
+    .style('font-size', '15px')
     .text(d => d["2"]);
+    
 
   svg2.append('text')
     .attr('x', width / 2 + margin)
     .attr('y', 50)
     .attr('text-anchor', 'middle')
     .text('Top 15 Scorers in the League')
+    .style('font-size', '30px')
+    .style('fill', 'white')
+    
 
   svg2.append('text')
-    .attr('x', width)
+    .attr('x', width + 30)
     .attr('y', 75)
     .attr('text-anchor', 'start')
     .text('Points Per Game')
+    .style('fill', 'pink')
+    .style('font-size', '13px')
 
   svg2.append('text')
     .attr('class', 'source')
@@ -118,7 +187,9 @@ export const stat_bar = () => {
     .attr('y', height - margin + 20)
     .attr('text-anchor', 'start')
     .text('Source: NBA Stats, 2019-2020')
+    .style('fill', 'pink')
 
   svg2.append()
+  // detailsSvg.append()
   
 }
