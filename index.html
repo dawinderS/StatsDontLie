@@ -19,9 +19,17 @@
     </div>
     
     <div class="audio">
-      <button class="button" onclick="document.getElementsByTagName('audio')[0].play();">Music</button>
-      <button onclick="document.getElementsByTagName('audio')[0].pause();">Mute</button>
-      <audio autoplay preload="auto" loop src="dist/images/kobe.mp3"></audio>
+      <div class='audio-design'>
+        <!-- <div id='audio-out'>
+          <img src="dist/images/music-icon.png" alt="music-icon">
+          <strong>God's Plan - Drake</strong>
+        </div> -->
+        <audio id='controls' autoplay controls preload="auto" loop src="dist/images/godsplan.mp3"></audio>
+        <!-- <div id='audio-in'>
+          <img onclick="document.getElementsByTagName('audio')[0].play();" src="dist/images/play_btn.png" alt="play">
+          <img onclick="document.getElementsByTagName('audio')[0].pause();" src='dist/images/pause.png' alt='pause'>
+        </div> -->
+      </div>
     </div>
     <div class="navbar-links">
       <a target="_blank" href="https://github.com/dawinderS/StatsDontLie"><img src="./dist/images/github-logo.png"
