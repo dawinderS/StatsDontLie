@@ -6,4 +6,5 @@ document.addEventListener("DOMContentLoaded", () => {
   bubble_chart();
   stat_bar();
   outer_circle();
+
 });

@@ -21,10 +21,12 @@
     <div class="audio">
       <div class='audio-design'>
         <div id='audio-out'>
-          <img src="dist/images/music-icon.png" alt="music-icon">
-          <strong>God's Plan - Drake</strong>
+          <img id='music-icon' src="dist/images/music-icon.png" alt="music-icon">
+          <strong id='title'>God's Plan - Drake</strong>
+          <img id='forward' onclick='myFunction()' src="dist/images/forward.png" alt="forward">
         </div>
-        <audio id='controls' autoplay controls preload="auto" loop src="dist/images/godsplan.mp3"></audio>
+        <audio id='m0' class='controls' autoplay controls preload="auto" loop src="dist/images/godsplan.mp3"></audio>
+        <audio id='m1' class='controls' controls src="dist/images/rockstar.mp3"></audio>
         <!-- <div id='audio-in'>
           <img onclick="document.getElementsByTagName('audio')[0].play();" src="dist/images/play_btn.png" alt="play">
           <img onclick="document.getElementsByTagName('audio')[0].pause();" src='dist/images/pause.png' alt='pause'>
@@ -51,5 +53,30 @@
       
     </div>
   </div>
+  <script>
+    function myFunction() {
+      let m0 = document.getElementById('m0');
+      let m1 = document.getElementById('m1');
+      let m2 = document.getElementById('m2');
+      let m3 = document.getElementById('m3');
+      let m4 = document.getElementById('m4');
+      let audio = document.getElementsByTagName('audio');
+      if (m0.style.display !== 'none') {
+        document.getElementById('title').textContent = 'Rockstar - Post Ma.';
+        m1.style.display = 'flex';
+        m0.style.display = 'none';
+        audio[0].pause();
+        audio[0].currentTime = 0;
+        audio[1].play();
+      } else {
+        m0.style.display = 'flex';
+        m1.style.display = 'none';
+        audio[1].pause();
+        audio[1].currentTime = 0;
+        audio[0].play();
+        document.getElementById('title').textContent = "God's Plan - Drake";
+      }
+    }
+  </script>
 </body>
 </html>
