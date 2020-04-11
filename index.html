@@ -27,6 +27,9 @@
         </div>
         <audio id='m0' class='controls' autoplay controls preload="auto" loop src="dist/images/godsplan.mp3"></audio>
         <audio id='m1' class='controls' controls src="dist/images/rockstar.mp3"></audio>
+        <audio id='m2' class='controls' controls src="dist/images/middlechild.mp3"></audio>
+        <audio id='m3' class='controls' controls src="dist/images/turks.mp3"></audio>
+        <audio id='m4' class='controls' controls src="dist/images/box.mp3"></audio>
         <!-- <div id='audio-in'>
           <img onclick="document.getElementsByTagName('audio')[0].play();" src="dist/images/play_btn.png" alt="play">
           <img onclick="document.getElementsByTagName('audio')[0].pause();" src='dist/images/pause.png' alt='pause'>
@@ -62,17 +65,38 @@
       let m4 = document.getElementById('m4');
       let audio = document.getElementsByTagName('audio');
       if (m0.style.display !== 'none') {
-        document.getElementById('title').textContent = 'Rockstar - Post Ma.';
         m1.style.display = 'flex';
         m0.style.display = 'none';
         audio[0].pause();
         audio[0].currentTime = 0;
         audio[1].play();
-      } else {
-        m0.style.display = 'flex';
+        document.getElementById('title').textContent = 'Rockstar - Post Mal.';
+      } else if (m1.style.display !== 'none') {
+        m2.style.display = 'flex';
         m1.style.display = 'none';
         audio[1].pause();
         audio[1].currentTime = 0;
+        audio[2].play();
+        document.getElementById('title').textContent = "Middle Child - J. Cole";
+      } else if (m2.style.display !== 'none') {
+        m3.style.display = 'flex';
+        m2.style.display = 'none';
+        audio[2].pause();
+        audio[2].currentTime = 0;
+        audio[3].play();
+        document.getElementById('title').textContent = "Turks - Nav";
+      } else if (m3.style.display !== 'none') {
+        m4.style.display = 'flex';
+        m3.style.display = 'none';
+        audio[3].pause();
+        audio[3].currentTime = 0;
+        audio[4].play();
+        document.getElementById('title').textContent = "The Box - Roddy Rich";
+      } else if (m4.style.display !== 'none') {
+        m0.style.display = 'flex';
+        m4.style.display = 'none';
+        audio[4].pause();
+        audio[4].currentTime = 0;
         audio[0].play();
         document.getElementById('title').textContent = "God's Plan - Drake";
       }

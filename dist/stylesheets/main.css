@@ -44,7 +44,7 @@
   justify-content: center;
   align-items: center;
   height: 65%;
-  width: 475px;
+  width: 500px;
   background: rgb(241, 240, 240);
   border-radius: 15px;
   /* border: 2px solid white; */
@@ -107,6 +107,15 @@
 }
 
 #m1 {
+  display: none;
+}
+#m2 {
+  display: none;
+}
+#m3 {
+  display: none;
+}
+#m4 {
   display: none;
 }
 
@@ -240,7 +249,7 @@ line#limit {
   cursor: pointer;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1025px) {
   #stats-logo strong {
     display: none;
   }
