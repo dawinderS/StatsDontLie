@@ -31,10 +31,6 @@
         <audio id='m2' class='controls' controls preload="auto" loop src="dist/images/middlechild.mp3"></audio>
         <audio id='m3' class='controls' controls preload="auto" loop src="dist/images/turks.mp3"></audio>
         <audio id='m4' class='controls' controls preload="auto" loop src="dist/images/box.mp3"></audio>
-        <!-- <div id='audio-in'>
-          <img onclick="document.getElementsByTagName('audio')[0].play();" src="dist/images/play_btn.png" alt="play">
-          <img onclick="document.getElementsByTagName('audio')[0].pause();" src='dist/images/pause.png' alt='pause'>
-        </div> -->
       </div>
     </div>
     <div class="navbar-links">
@@ -45,13 +41,30 @@
     </div>
   </div>
   <div id='stats'>
+    <div id='info'>
+      <strong>Stats Don't Lie Info</strong>
+      <div id='info-mid'>
+        <li>Click on bubble graphs on the right to see top 30 in rank</li>
+        <li>See the bar graphs below to look at the top 15 in various categories</li>
+        <li>Note: click on any of the bars to see a detailed statistic of player (can click on many players to compare full stats)</li>
+        <li>Stats are of the top 50 players of the 2019-2020 NBA season (top in terms of PER and efficiency)</li>
+        <span>ALSO ENJOY THE LATEST TUNES WHILE GLANCING OVER THE STATS ! ! (use navbar music player)</span>
+      </div>
+      <div id='info-footer'>
+        <a target="_blank" href="https://github.com/dawinderS/StatsDontLie"><img src="./dist/images/github-logo.png"
+            alt="github"></a>
+        <button onclick="closeInfo()">Close</button>
+        <a target="_blank" href="https://www.linkedin.com/in/dawinder-singh/"><img src="./dist/images/linkedin-logo.png"
+            alt="linkedIn"></a>
+      </div>
+    </div>
     <div id='pts' class='top_per'></div>
     <div id='rebs' class='top_per'></div>
     <div id='asts' class='top_per'></div>
     <div id='deets'></div>
     <div id='border'></div>
     <div class='stat_show'>
-      <span>Legends in. . .</span>
+      <span>Top 15 in. . .</span>
       <div>
         <button id='btn1' class='btn'>Points</button>
         <button id='btn2' class='btn'>Rebounds</button>
@@ -69,6 +82,10 @@
   </div>
   
   <script>
+    const closeInfo = () => {
+      document.getElementById('info').style.display = 'none';
+    }
+
     function myFunction() {
       let m0 = document.getElementById('m0');
       let m1 = document.getElementById('m1');

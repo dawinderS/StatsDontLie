@@ -12,7 +12,7 @@ html {
   background: black;
 }
 
-div, h1, strong, span {
+div, h1, strong, li, span {
   color: #eceff1;
   font-family: Rajdhani, Roboto, Helvetica, Arial, sans-serif;
 }
