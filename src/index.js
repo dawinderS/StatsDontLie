@@ -7,6 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
   bubble_reb();
   stat_bar();
   outer_circle();
-  bar_rbs();
-  bar_asts();
+  document.getElementById('btn1').onclick = () => {
+    stat_bar();
+    document.getElementById('bar_pts').style.display = 'flex';
+    document.getElementById('bar_rebs').style.display = 'none';
+    document.getElementById('bar_asts').style.display = 'none';
+  }
+  document.getElementById('btn2').onclick = () => {
+    bar_rbs();
+    document.getElementById('bar_pts').style.display = 'none';
+    document.getElementById('bar_rebs').style.display = 'flex';
+    document.getElementById('bar_asts').style.display = 'none';
+  }
+  document.getElementById('btn3').onclick = () => {
+    bar_asts();
+    document.getElementById('bar_pts').style.display = 'none';
+    document.getElementById('bar_rebs').style.display = 'none';
+    document.getElementById('bar_asts').style.display = 'flex';
+  }
 });

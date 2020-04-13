@@ -14,7 +14,7 @@ export const stat_bar = () => {
   
   const rTopPts = top25pts.reverse();
   const chart = svg2.append('g')
-    .attr('transform', `translate(${margin}, ${margin})`)
+    .attr('transform', `translate(${margin}, 40)`)
 
   const yScale = d3.scaleBand()
     .range([600, 0])
@@ -164,18 +164,18 @@ export const stat_bar = () => {
     .text(d => d["2"]);
     
 
-  svg2.append('text')
-    .attr('x', width / 2 + margin)
-    .attr('y', 50)
-    .attr('text-anchor', 'middle')
-    .text('Top 15 Scorers in the League')
-    .style('font-size', '30px')
-    .style('fill', 'white')
+  // svg2.append('text')
+  //   .attr('x', width / 2 + margin)
+  //   .attr('y', 50)
+  //   .attr('text-anchor', 'middle')
+  //   .text('Top 15 Scorers in the League')
+  //   .style('font-size', '30px')
+  //   .style('fill', 'white')
     
 
   svg2.append('text')
     .attr('x', width + 30)
-    .attr('y', 75)
+    .attr('y', 10)
     .attr('text-anchor', 'start')
     .text('Points Per Game')
     .style('fill', 'pink')
@@ -207,7 +207,7 @@ export const bar_rbs = () => {
   const top25pts = stats.sort((a, b) => b["17"] - a["17"]).slice(0, stats.length / 2 - 10);
   const rTopPts = top25pts.reverse();
   const chart = svg2.append('g')
-    .attr('transform', `translate(${margin}, ${margin})`)
+    .attr('transform', `translate(${margin}, 40)`)
 
   const yScale = d3.scaleBand()
     .range([600, 0])
@@ -354,21 +354,11 @@ export const bar_rbs = () => {
     .style('fill', 'white')
     .style('font-style', 'italic')
     .style('font-size', '15px')
-    .text(d => d["2"]);
-    
-
-  svg2.append('text')
-    .attr('x', width / 2 + margin)
-    .attr('y', 50)
-    .attr('text-anchor', 'middle')
-    .text('Top 15 Scorers in the League')
-    .style('font-size', '30px')
-    .style('fill', 'white')
-    
+    .text(d => d["2"]);    
 
   svg2.append('text')
     .attr('x', width + 10)
-    .attr('y', 75)
+    .attr('y', 10)
     .attr('text-anchor', 'start')
     .text('Rebounds Per Game')
     .style('fill', 'pink')
@@ -401,7 +391,7 @@ export const bar_asts = () => {
   const top25pts = stats.sort((a, b) => b["18"] - a["18"]).slice(0, stats.length / 2 - 10);
   const rTopPts = top25pts.reverse();
   const chart = svg2.append('g')
-    .attr('transform', `translate(${margin}, ${margin})`)
+    .attr('transform', `translate(${margin}, 40)`)
 
   const yScale = d3.scaleBand()
     .range([600, 0])
@@ -549,20 +539,10 @@ export const bar_asts = () => {
     .style('font-style', 'italic')
     .style('font-size', '15px')
     .text(d => d["2"]);
-    
-
-  svg2.append('text')
-    .attr('x', width / 2 + margin)
-    .attr('y', 50)
-    .attr('text-anchor', 'middle')
-    .text('Top 15 Scorers in the League')
-    .style('font-size', '30px')
-    .style('fill', 'white')
-    
 
   svg2.append('text')
     .attr('x', width + 25)
-    .attr('y', 75)
+    .attr('y', 10)
     .attr('text-anchor', 'start')
     .text('Assists Per Game')
     .style('fill', 'pink')
@@ -577,6 +557,5 @@ export const bar_asts = () => {
     .style('fill', 'pink')
 
   svg2.append()
-  // detailsSvg.append()
   
 }
