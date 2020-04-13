@@ -2,7 +2,7 @@ import stats from "../data/stats.json";
 
 export const stat_bar = () => {
   const margin = 110;
-  const height = 800;
+  const height = 730;
   const width = 800;
 
   let svg2 = d3.select("#bar_pts").append("svg")
@@ -178,6 +178,13 @@ export const stat_bar = () => {
     document.getElementById('bar_asts').style.display = 'none';
     document.getElementById('bar_stls').style.display = 'none';
     document.getElementById('bar_blks').style.display = 'none';
+    let a = document.getElementsByClassName('btn')
+    for (let i = 0; i < a.length; i++) {
+      a[i].style.backgroundColor = "black";
+      a[i].style.color = "white";
+    }
+    document.getElementById('btn1').style.background = 'white';
+    document.getElementById('btn1').style.color = 'black';
   }
 
   svg2.append('text')
@@ -203,7 +210,7 @@ export const stat_bar = () => {
 ////////////////////////////////////////////////////////////////////////////////
 export const bar_rbs = () => {
   const margin = 110;
-  const height = 800;
+  const height = 730;
   const width = 800;
 
   let svg2 = d3.select("#bar_rebs").append("svg")
@@ -342,6 +349,13 @@ export const bar_rbs = () => {
     document.getElementById('bar_asts').style.display = 'none';
     document.getElementById('bar_stls').style.display = 'none';
     document.getElementById('bar_blks').style.display = 'none';
+    let a = document.getElementsByClassName('btn')
+    for (let i = 0; i < a.length; i++) {
+      a[i].style.backgroundColor = "black";
+      a[i].style.color = "white";
+    }
+    document.getElementById('btn2').style.background = 'white';
+    document.getElementById('btn2').style.color = 'black';
     svg2.selectAll('rect')
       .transition()
       .duration(800)
@@ -394,7 +408,7 @@ export const bar_rbs = () => {
 ////////////////////////////////////////////////////////////////////////////////
 export const bar_asts = () => {
   const margin = 110;
-  const height = 800;
+  const height = 730;
   const width = 800;
 
   let svg2 = d3.select("#bar_asts").append("svg")
@@ -532,6 +546,13 @@ export const bar_asts = () => {
     document.getElementById('bar_asts').style.display = 'flex';
     document.getElementById('bar_stls').style.display = 'none';
     document.getElementById('bar_blks').style.display = 'none';
+    let a = document.getElementsByClassName('btn')
+    for (let i = 0; i < a.length; i++) {
+      a[i].style.backgroundColor = "black";
+      a[i].style.color = "white";
+    }
+    document.getElementById('btn3').style.background = 'white';
+    document.getElementById('btn3').style.color = 'black';
     svg2.selectAll('rect')
       .transition()
       .duration(800)
@@ -583,7 +604,7 @@ export const bar_asts = () => {
 ////////////////////////////////////////////////////////////////////////////////
 export const bar_stls = () => {
   const margin = 110;
-  const height = 800;
+  const height = 730;
   const width = 800;
 
   let svg2 = d3.select("#bar_stls").append("svg")
@@ -721,6 +742,13 @@ export const bar_stls = () => {
     document.getElementById('bar_asts').style.display = 'none';
     document.getElementById('bar_stls').style.display = 'flex';
     document.getElementById('bar_blks').style.display = 'none';
+    let a = document.getElementsByClassName('btn')
+    for (let i = 0; i < a.length; i++) {
+      a[i].style.backgroundColor = "black";
+      a[i].style.color = "white";
+    }
+    document.getElementById('btn4').style.background = 'white';
+    document.getElementById('btn4').style.color = 'black';
     svg2.selectAll('rect')
       .transition()
       .duration(800)
@@ -772,7 +800,7 @@ export const bar_stls = () => {
 ////////////////////////////////////////////////////////////////////////////////
 export const bar_blks = () => {
   const margin = 110;
-  const height = 800;
+  const height = 730;
   const width = 800;
 
   let svg2 = d3.select("#bar_blks").append("svg")
@@ -910,6 +938,13 @@ export const bar_blks = () => {
     document.getElementById('bar_asts').style.display = 'none';
     document.getElementById('bar_stls').style.display = 'none';
     document.getElementById('bar_blks').style.display = 'flex';
+    let a = document.getElementsByClassName('btn')
+    for (let i = 0; i < a.length; i++) {
+      a[i].style.backgroundColor = "black";
+      a[i].style.color = "white";
+    }
+    document.getElementById('btn5').style.background = 'white';
+    document.getElementById('btn5').style.color = 'black';
     svg2.selectAll('rect')
       .transition()
       .duration(800)

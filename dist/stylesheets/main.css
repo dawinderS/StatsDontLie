@@ -131,11 +131,11 @@ line#limit {
   /* width: 100%; */
   flex-direction: column;
   width: 1000px;
-  min-height: 30px;
+  min-height: 20px;
   justify-content: center;
   align-items: center;
   background: black;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 #deets svg {
@@ -181,7 +181,7 @@ line#limit {
 }
 
 .details {
-  min-height: 730px;
+  min-height: 660px;
   display: flex;
   justify-content: center;
   background: black;
@@ -198,6 +198,7 @@ line#limit {
 .top_per {
   background: url('../images/court.JPG');
   background-size: 1000px 650px;
+  
 }
 
 #border {
@@ -254,9 +255,9 @@ line#limit {
   }
 }
 
-#pts {
+/* #pts {
   display: none;
-}
+} */
 
 #bar_rebs {
   display: none;
@@ -272,8 +273,8 @@ line#limit {
 }
 
 .stat_show {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,7 +286,7 @@ line#limit {
   font-weight: 700;
 }
 .stat_show div {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .stat_show div button {
@@ -295,13 +296,17 @@ line#limit {
   border-radius: 100px;
   background: black;
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   margin: 0px 10px;
   padding: 5px 10px;
   min-width: 80px; 
 }
 
-.stat_show div button:hover {
+#btn1 {
+  color: black;
+  background: white;
+}
+/* .stat_show div button:hover {
   background: white;
   color: black;
-}
+} */
