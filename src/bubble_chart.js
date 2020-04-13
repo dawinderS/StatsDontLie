@@ -1,7 +1,7 @@
 import stats from '../data/stats.json';
 
 export const bubble_chart = () => {
-  let svg = d3.select('#top_per').append('svg')
+  let svg = d3.select('.pts').append('svg')
     .attr('class', 'bubble_svg')
     .attr('width', 1000)
     .attr('height', 640)
@@ -10,7 +10,7 @@ export const bubble_chart = () => {
   let width = 1000;
   let height = 640;
 
-  let pack = d3.pack().size([1000, 600]).padding(3);
+  let pack = d3.pack().size([1000, 640]).padding(3);
   let data = stats.sort((a,b) => b['22'] - a['22']).slice(0, 30);
   let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['22']);
 
@@ -22,28 +22,30 @@ export const bubble_chart = () => {
     .attr("transform", d => `translate(500,360)`)
     .on('click', function () {
       svg.selectAll('g')
-        .attr('transform', (d,i) => {
-          let x = 0;
-          let y = 0;
-          if (i < 6 ) {
-            x = (i%6) * 140 + 140;
-            y = 120 * Math.floor(i / 6) + 115;
-          } else if (i < 12) {
-            x = (i % 6) * 123 + 190;
-            y = 115 * Math.floor(i / 6) + 115;
-          } else if (i < 18) {
-            x = (i % 6) * 115 + 210;
-            y = 110 * Math.floor(i / 6) + 115;
-          } else if (i < 24) {
-            x = (i % 6) * 105 + 240;
-            y = 105 * Math.floor(i / 6) + 115;
-          } else if (i < 30) {
-            x = (i % 6) * 95 + 260;
-            y = 100 * Math.floor(i / 6) + 115;
-          }
+      .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; })
+      // svg.selectAll('g')
+      //   .attr('transform', (d,i) => {
+      //     let x = 0;
+      //     let y = 0;
+      //     if (i < 6 ) {
+      //       x = (i%6) * 140 + 140;
+      //       y = 120 * Math.floor(i / 6) + 115;
+      //     } else if (i < 12) {
+      //       x = (i % 6) * 123 + 190;
+      //       y = 115 * Math.floor(i / 6) + 115;
+      //     } else if (i < 18) {
+      //       x = (i % 6) * 115 + 210;
+      //       y = 110 * Math.floor(i / 6) + 115;
+      //     } else if (i < 24) {
+      //       x = (i % 6) * 105 + 240;
+      //       y = 105 * Math.floor(i / 6) + 115;
+      //     } else if (i < 30) {
+      //       x = (i % 6) * 95 + 260;
+      //       y = 100 * Math.floor(i / 6) + 115;
+      //     }
 
-          return "translate(" + [x,y] + ")"
-        })
+      //     return "translate(" + [x,y] + ")"
+      //   })
  
       // document.querySelector('.leaves').style.display = 'none'
     })
