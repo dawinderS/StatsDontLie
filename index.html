@@ -51,33 +51,23 @@
     <div id='deets'></div>
     <div id='border'></div>
     <div class='stat_show'>
-      <div>Legends in</div>
-      <button onclick="btn1()" id='btn1'>Points</button>
-      <button onclick="btn2()" id='btn2'>Rebounds</button>
-      <button onclick="btn3()" id='btn3'>Assists</button>
+      <span>Legends in</span>
+      <div>
+        <button id='btn1' class='btn'>Points</button>
+        <button id='btn2' class='btn'>Rebounds</button>
+        <button id='btn3' class='btn'>Assists</button>
+        <button id='btn4' class='btn'>Steals</button>
+        <button id='btn5' class='btn'>Blocks</button>
+      </div>
     </div>
     <div id='bar_pts' class='details'></div>
     <div id='bar_rebs' class='details'></div>
     <div id='bar_asts' class='details'></div>
+    <div id='bar_stls' class='details'></div>
+    <div id='bar_blks' class='details'></div>
     <div id='details'></div>
   </div>
-  <script>
-    function btn1() {
-      document.getElementById('bar_pts').style.display = 'flex';
-      document.getElementById('bar_rebs').style.display = 'none';
-      document.getElementById('bar_asts').style.display = 'none';
-    }
-    function btn2() {
-      document.getElementById('bar_pts').style.display = 'none';
-      document.getElementById('bar_rebs').style.display = 'flex';
-      document.getElementById('bar_asts').style.display = 'none';
-    }
-    function btn3() {
-      document.getElementById('bar_pts').style.display = 'none';
-      document.getElementById('bar_rebs').style.display = 'none';
-      document.getElementById('bar_asts').style.display = 'flex';
-    }
-  </script>
+  
   <script>
     function myFunction() {
       let m0 = document.getElementById('m0');

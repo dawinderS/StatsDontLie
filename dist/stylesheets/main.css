@@ -258,16 +258,50 @@ line#limit {
   display: none;
 }
 
-#bar_pts {
-  /* display: none; */
-}
 #bar_rebs {
-  /* display: none; */
+  display: none;
 }
 #bar_asts {
-  /* display: none; */
+  display: none;
+}
+#bar_stls {
+  display: none;
+}
+#bar_blks {
+  display: none;
 }
 
 .stat_show {
-  /* margin-bottom: 40px; */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+}
+
+.stat_show span {
+  font-size: 30px;
+  font-weight: 700;
+}
+.stat_show div {
+  margin-left: 20px;
+}
+
+.stat_show div button {
+  cursor: pointer;
+  outline: none;
+  border: 1px solid white;
+  border-radius: 100px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  margin: 0px 10px;
+  padding: 5px 10px;
+  min-width: 80px; 
+}
+
+.stat_show div button:hover {
+  background: white;
+  color: black;
 }
