@@ -394,12 +394,11 @@ export const bar_asts = () => {
   const height = 800;
   const width = 800;
 
-  let svg2 = d3.select("#bar_rebs").append("svg")
+  let svg2 = d3.select("#bar_asts").append("svg")
     .attr("width", 1000)
     // .attr("min-height", height)
-    // .attr("style", "border: thin white solid");
-
-  const top25pts = stats.sort((a, b) => b["17"] - a["17"]).slice(0, stats.length / 2 - 10);
+    // .attr("style", "border: thin white solid");console.log(stats) 18
+  const top25pts = stats.sort((a, b) => b["18"] - a["18"]).slice(0, stats.length / 2 - 10);
   const rTopPts = top25pts.reverse();
   const chart = svg2.append('g')
     .attr('transform', `translate(${margin}, ${margin})`)
@@ -414,7 +413,7 @@ export const bar_asts = () => {
 
   const xScale = d3.scaleLinear()
     .range([0, width])
-    .domain([6, 16])
+    .domain([4, 11])
 
   let xAxis = chart.append('g')
     // .attr('transform', `translate(0, 700)`)
@@ -438,11 +437,11 @@ export const bar_asts = () => {
     .style("stroke-width", 2)
     .attr("fill-opacity", 0.30)
     .attr("fill", d => d.color)
-    .attr("x", d => xScale(d["17"]))
+    .attr("x", d => xScale(d["18"]))
     .attr("y", d => yScale(d["2"].split(" ")[1]))
     .attr("width", d => 0)
     .attr("height", yScale.bandwidth())
-    .attr("x", (actual, i, rTopPts) => yScale(rTopPts[i]["17"]))
+    .attr("x", (actual, i, rTopPts) => yScale(rTopPts[i]["18"]))
   
     .on("mouseenter", function(s, i) {
       d3.select(this)
@@ -451,7 +450,7 @@ export const bar_asts = () => {
         .attr("fill-opacity", 0.85)
         .attr("height", yScale.bandwidth() + 5);
 
-      const x = xScale(rTopPts[i]["17"]);
+      const x = xScale(rTopPts[i]["18"]);
 
       const line = chart
         .append("line")
@@ -527,23 +526,23 @@ export const bar_asts = () => {
   svg2.selectAll('rect')
     .transition()
     .duration(800)
-    .attr("x", d => xScale(d["17"]))
-    .attr("width", d => xScale(d["17"]))
-    .attr("x", (actual, i, rTopPts) => yScale(rTopPts[i]["17"]))
+    .attr("x", d => xScale(d["18"]))
+    .attr("width", d => xScale(d["18"]))
+    .attr("x", (actual, i, rTopPts) => yScale(rTopPts[i]["18"]))
 
   barGroups
     .append("text")
     .attr("class", "value")
-    .attr("x", d => xScale(d["17"]) + 24)
+    .attr("x", d => xScale(d["18"]) + 24)
     .attr("y", d => yScale(d["2"].split(" ")[1]) + 4 + yScale.bandwidth() / 2)
     .attr("text-anchor", "middle")
-    .text(d => d["17"])
+    .text(d => d["18"])
     .style('fill', 'white')
   
   barGroups
     .append("text")
     .attr("class", "value")
-    .attr("x", d => xScale(d["17"]) / 2)
+    .attr("x", d => xScale(d["18"]) / 2)
     .attr("y", d => yScale(d["2"].split(" ")[1]) + 5 + yScale.bandwidth() / 2)
     .attr("text-anchor", "middle")
     .style('fill', 'white')
@@ -562,10 +561,10 @@ export const bar_asts = () => {
     
 
   svg2.append('text')
-    .attr('x', width + 10)
+    .attr('x', width + 25)
     .attr('y', 75)
     .attr('text-anchor', 'start')
-    .text('Rebounds Per Game')
+    .text('Assists Per Game')
     .style('fill', 'pink')
     .style('font-size', '13px')
 
