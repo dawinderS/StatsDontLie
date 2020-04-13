@@ -121,10 +121,6 @@ line#limit {
   stroke-dasharray: 3 6;
 }
 
-#stat_bar svg {
-  min-height: 730px;
-}
-
 #details svg {
   min-height: 150px;
   
@@ -184,21 +180,22 @@ line#limit {
   border-bottom: 2px solid white;
 }
 
-#stat_bar {
+.details {
+  min-height: 730px;
   display: flex;
   justify-content: center;
   background: black;
   /* display: none; */
 }
 
-#top_per {
+.top_per {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: black;
 }
 
-#top_per {
+.top_per {
   background: url('../images/court.JPG');
   background-size: 1000px 650px;
 }
@@ -255,4 +252,12 @@ line#limit {
   .navbar-links {
   margin-right: 0px;
   }
+}
+
+#pts {
+  display: none;
+}
+
+#bar_pts {
+  /* display: none; */
 }

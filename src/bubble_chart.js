@@ -1,7 +1,7 @@
 import stats from '../data/stats.json';
 
 export const bubble_chart = () => {
-  let svg = d3.select('.pts').append('svg')
+  let svg = d3.select('#pts').append('svg')
     .attr('class', 'bubble_svg')
     .attr('width', 1000)
     .attr('height', 640)
@@ -13,6 +13,10 @@ export const bubble_chart = () => {
   let pack = d3.pack().size([1000, 640]).padding(3);
   let data = stats.sort((a,b) => b['22'] - a['22']).slice(0, 30);
   let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['22']);
+  for (let i = 0; i < data.length; i++) {
+    data[i].rank = i + 1;
+    data[i].radius = data.length - i;
+  }
 
   const root = pack(hierarchy1);
 
@@ -21,31 +25,31 @@ export const bubble_chart = () => {
     .join("g")
     .attr("transform", d => `translate(500,360)`)
     .on('click', function () {
-      svg.selectAll('g')
-      .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; })
       // svg.selectAll('g')
-      //   .attr('transform', (d,i) => {
-      //     let x = 0;
-      //     let y = 0;
-      //     if (i < 6 ) {
-      //       x = (i%6) * 140 + 140;
-      //       y = 120 * Math.floor(i / 6) + 115;
-      //     } else if (i < 12) {
-      //       x = (i % 6) * 123 + 190;
-      //       y = 115 * Math.floor(i / 6) + 115;
-      //     } else if (i < 18) {
-      //       x = (i % 6) * 115 + 210;
-      //       y = 110 * Math.floor(i / 6) + 115;
-      //     } else if (i < 24) {
-      //       x = (i % 6) * 105 + 240;
-      //       y = 105 * Math.floor(i / 6) + 115;
-      //     } else if (i < 30) {
-      //       x = (i % 6) * 95 + 260;
-      //       y = 100 * Math.floor(i / 6) + 115;
-      //     }
+      // .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; })
+      svg.selectAll('g')
+        .attr('transform', (d,i) => {
+          let x = 0;
+          let y = 0;
+          if (i < 6 ) {
+            x = (i%6) * 140 + 140;
+            y = 120 * Math.floor(i / 6) + 115;
+          } else if (i < 12) {
+            x = (i % 6) * 123 + 190;
+            y = 115 * Math.floor(i / 6) + 115;
+          } else if (i < 18) {
+            x = (i % 6) * 115 + 210;
+            y = 110 * Math.floor(i / 6) + 115;
+          } else if (i < 24) {
+            x = (i % 6) * 105 + 240;
+            y = 105 * Math.floor(i / 6) + 115;
+          } else if (i < 30) {
+            x = (i % 6) * 95 + 260;
+            y = 100 * Math.floor(i / 6) + 115;
+          }
 
-      //     return "translate(" + [x,y] + ")"
-      //   })
+          return "translate(" + [x,y] + ")"
+        })
  
       // document.querySelector('.leaves').style.display = 'none'
     })
@@ -126,7 +130,7 @@ export const bubble_chart = () => {
   .style('text-anchor', 'middle')
   // .style('font-size', '25px')
   .style('font-size', d => d.r / 1.5)
-  .text(d => d.data['22'])
+  .text(d => d.data.rank)
   .attr('dy', '0.25em')
 
   leaf.append("text")
@@ -143,11 +147,60 @@ export const bubble_chart = () => {
   .text(d => d.data['2'].split(' ').slice(0,1))
 
 ////////////////////////////////////////////////////////////////////////////////
-  const leaf2 = svg.selectAll("h")
-    .data(root.leaves())
-    .join("h")
-    .attr("transform", d => `translate(250,300)`)
+  // const leaf2 = svg.selectAll("h")
+  //   .data(root.leaves())
+  //   .join("h")
+  //   .attr("transform", d => `translate(250,300)`)
 
   return svg.node();
 }
 
+export const bubble_reb = () => {
+  
+    // Fake JSON data
+    // var json = {
+    //   "countries_msg_vol": {
+    //     "CA": 170, "US": 393, "BB": 12, "CU": 9, "BR": 89, "MX": 192, "PY": 32, "UY": 9, "VE": 25, "BG": 42, "CZ": 12, "HU": 7, "RU": 184, "FI": 42, "GB": 162, "IT": 87, "ES": 65, "FR": 42, "DE": 102, "NL": 12, "CN": 92, "JP": 65, "KR": 87, "TW": 9, "IN": 98, "SG": 32, "ID": 4, "MY": 7, "VN": 8, "AU": 129, "NZ": 65, "GU": 11, "EG": 18, "LY": 4, "ZA": 76, "A1": 2, "Other": 254
+    //   }
+    // };
+
+    // // D3 Bubble Chart 
+
+    // var diameter = 600;
+
+    // var svg = d3.select('#graph').append('svg')
+    //   .attr('width', diameter)
+    //   .attr('height', diameter);
+
+    // var bubble = d3.pack()
+    //   .size([diameter, diameter])
+    //   // .value(function (d) { return d.size; })
+    //   // .sort(function(a, b) {
+    //   // 	return -(a.value - b.value)
+    //   // }) 
+    //   .padding(3);
+
+    // // generate data with calculated layout values
+    // var nodes = bubble.nodes(processData(json))
+    //   .filter(function (d) { return !d.children; }); // filter out the outer bubble
+
+    // var vis = svg.selectAll('circle')
+    //   .data(nodes);
+
+    // vis.enter().append('circle')
+    //   .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; })
+    //   .attr('r', function (d) { return d.r; })
+    //   .attr('class', function (d) { return d.className; });
+
+    // function processData(data) {
+    //   var obj = data.countries_msg_vol;
+
+    //   var newDataSet = [];
+
+    //   for (var prop in obj) {
+    //     newDataSet.push({ name: prop, className: prop.toLowerCase(), size: obj[prop] });
+    //   }
+    //   return { children: newDataSet };
+    // }
+
+  };
