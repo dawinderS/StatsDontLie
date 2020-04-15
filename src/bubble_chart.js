@@ -9,10 +9,10 @@ export const bubble_chart = () => {
     // .style('background-color', 'white')
   let width = 1000;
   let height = 640;
-
   let pack = d3.pack().size([1000, 640]).padding(3);
-  let data = stats.sort((a,b) => b['22'] - a['22']).slice(0, 30);
-  let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['22']);
+  let data = stats.sort((a,b) => b['23'] - a['23']).slice(0, 30);
+  console.log(data)
+  let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['23']);
   for (let i = 0; i < data.length; i++) {
     data[i].rank = i + 1;
     data[i].radius = data.length - i;
@@ -67,10 +67,10 @@ export const bubble_chart = () => {
           let y = 0;
           if (i < 6 ) {
             x = (i%6) * 140 + 140;
-            y = 120 * Math.floor(i / 6) + 115;
+            y = 120 * Math.floor(i / 6) + 100;
           } else if (i < 12) {
             x = (i % 6) * 123 + 190;
-            y = 115 * Math.floor(i / 6) + 115;
+            y = 115 * Math.floor(i / 6) + 105;
           } else if (i < 18) {
             x = (i % 6) * 115 + 210;
             y = 110 * Math.floor(i / 6) + 115;
@@ -85,8 +85,8 @@ export const bubble_chart = () => {
           return "translate(" + [x,y] + ")"
         })
  
-      // document.querySelector('.leaves').style.display = 'none'
-    })
+        // document.querySelector('.deets').style.display = 'none'
+      })
     // .on("mouseover", showTooltip)
     // .on("mousemove", moveTooltip)
     // .on("mouseleave", hideTooltip)
@@ -95,14 +95,24 @@ export const bubble_chart = () => {
   const circles = leaf.append("circle")
     .attr('class', 'stat-circles')
     .attr("r", d => {
-      if (d.data['22'] > 29) {
-        return d.data['22'] + 25
-      } else if (d.data['22'] > 25) {
-        return d.data['22'] + 20
-      } else if (d.data['22'] > 20) {
-        return d.data['22'] + 15
-      } else {
-        return d.data['22'] + 15
+      if (d.data['23'] > 31) {
+        return d.data['23'] + 33
+      } else if (d.data['23'] > 28) {
+        return d.data['23'] + 30
+      } else if (d.data['23'] > 27) {
+        return d.data['23'] + 27
+      } else if (d.data['23'] > 26) {
+        return d.data['23'] + 24
+      } else if (d.data['23'] > 25) {
+        return d.data['23'] + 21
+      } else if (d.data['23'] > 24) {
+        return d.data['23'] + 18
+      } else if (d.data['23'] > 23) {
+        return d.data['23'] + 16
+      } else if (d.data['23'] > 22) {
+        return d.data['23'] + 13
+      } else if (d.data['23'] > 21) {
+        return d.data['23'] + 10
       }
       })
     .attr("fill-opacity", 0.85)
@@ -110,6 +120,7 @@ export const bubble_chart = () => {
     .attr('stroke', d => d.data.color)
     .attr('stroke-width', d => 4)
     .on("click", function (s, i) {
+      // document.querySelector('#deets').style.display = 'flex';
       const nameRect = d3.select("#deets")
         .append('rect')
         .attr('class', 'detail')
@@ -174,7 +185,7 @@ export const bubble_chart = () => {
   .attr('dy', '1.7em')
   .style('fill', 'white')
   .style('text-anchor', 'middle')
-  .style('font-size', d => d.r / 3)
+  .style('font-size', d => d.r / 3.25)
   .text(d => d.data['2'].split(' ').slice(1))
   leaf.append("text")
   .attr('dy', '-1.9em')
