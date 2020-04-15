@@ -11,7 +11,7 @@
   <script src="./dist/main.js"></script>
   <title>Stats Don't Lie</title>
 </head>
-<body> 
+<body onscroll="removeTitle()"> 
   <!-- onscroll="removeTitle()" -->
   <div class="navbar">
     <div id='stats-logo'>
@@ -41,8 +41,9 @@
     </div>
   </div>
   <div id='stats'>
+    <div onclick='openInfo()' id='info2'>See Help Again?</div>
     <div id='info'>
-      <strong>Stats Don't Lie Info</strong>
+      <strong>Stats Don't Lie Help</strong>
       <div id='info-mid'>
         <li>Click on bubble graphs on the right to see top 30 in rank</li>
         <li>See the bar graphs below to look at the top 15 in various categories</li>
@@ -84,6 +85,11 @@
   <script>
     const closeInfo = () => {
       document.getElementById('info').style.display = 'none';
+      document.getElementById('info2').style.display = 'flex';
+    }
+    const openInfo = () => {
+      document.getElementById('info2').style.display = 'none';
+      document.getElementById('info').style.display = 'inline';
     }
 
     function myFunction() {
@@ -131,15 +137,14 @@
       }
     }
   </script>
-  <!-- <script>
+  <script>
     function removeTitle() {
       if (document.scrollTop = 10 && document.getElementById('titlename').style.display !== 'none') {
         document.getElementById('titlename').style.display = 'none';
         // document.getElementById('audiohold').style.marginRight = '0';
         document.getElementById('audiohold').style.marginLeft = '190px';
       } 
-      console.log(document.scrollTop);
     }
-  </script> -->
+  </script>
 </body>
 </html>

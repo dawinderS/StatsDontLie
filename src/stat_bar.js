@@ -778,10 +778,10 @@ export const bar_stls = () => {
     .text(d => d["2"]);
 
   svg2.append('text')
-    .attr('x', width + 25)
+    .attr('x', width + 30)
     .attr('y', 10)
     .attr('text-anchor', 'start')
-    .text('Assists Per Game')
+    .text('Steals Per Game')
     .style('fill', 'pink')
     .style('font-size', '13px')
 
@@ -977,7 +977,7 @@ export const bar_blks = () => {
     .attr('x', width + 25)
     .attr('y', 10)
     .attr('text-anchor', 'start')
-    .text('Assists Per Game')
+    .text('Blocks Per Game')
     .style('fill', 'pink')
     .style('font-size', '13px')
 

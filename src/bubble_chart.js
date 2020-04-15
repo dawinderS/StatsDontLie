@@ -20,6 +20,40 @@ export const bubble_chart = () => {
 
   const root = pack(hierarchy1);
 
+  let tooltip = d3.select("#pts")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "pink")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .style("color", "white")
+    .style("position", "absolute");
+
+  let showTooltip = function (d) {
+    tooltip
+      .transition()
+      .duration(200)
+    tooltip
+      .style("opacity", 1)
+      .html("Country: " )
+      .style("left", (d3.mouse(this)[0] + 130) + "px")
+      .style("top", (d3.mouse(this)[1] + 30) + "px")
+  }
+
+  let moveTooltip = function (d) {
+    tooltip
+      .style("left", (d3.mouse(this)[0] + 130) + "px")
+      .style("top", (d3.mouse(this)[1] + 30) + "px")
+  }
+
+  let hideTooltip = function (d) {
+    tooltip
+      .transition()
+      .duration(200)
+      .style("opacity", 0)
+  }
+
   const leaf = svg.selectAll("g")
     .data(root.leaves())
     .join("g")
@@ -53,6 +87,10 @@ export const bubble_chart = () => {
  
       // document.querySelector('.leaves').style.display = 'none'
     })
+    .on("mouseover", showTooltip)
+    .on("mousemove", moveTooltip)
+    .on("mouseleave", hideTooltip)
+
 
   const circles = leaf.append("circle")
     .attr('class', 'stat-circles')
@@ -71,59 +109,6 @@ export const bubble_chart = () => {
     .attr("fill", d => 'black')
     .attr('stroke', d => d.data.color)
     .attr('stroke-width', d => 4)
-    .on('click', function (s, i) {
-      // if (document.getElementsByClassName('.bubble_svg').style.left = '500px') {
-      //   console.log('hello');
-      // }
-      const nameRect = d3.select("#deets")
-        .append('rect')
-        .attr('class', 'detail')
-        .attr('width', '100%')
-        .attr('height', 50)
-      // .attr('style', 'border-top: thin #616161 solid')
-
-      const statRect = d3.select("#deets")
-        .append('rect')
-        .attr('class', 'detail2')
-        .attr('width', '100%')
-        .attr('height', 50)
-      // .attr('style', 'border: thin #616161 solid')
-      const statRect2 = d3.select("#deets")
-        .append('rect')
-        .attr('class', 'detail3')
-        .attr('width', '100%')
-        .attr('height', 50)
-      // .attr('style', 'border: thin #616161 solid')
-
-      nameRect
-        .append('text')
-        .attr('class', 'player_details')
-        .style('font-size', '28px')
-        .text(d => data[i]['2'])
-        .style('color', d => data[i]['color'])
-      nameRect
-        .append('text')
-        .attr('class', 'player_details2')
-        .style('font-size', '18px')
-        .text(d => 'Team: ' + data[i]['3'])
-        .style('color', d => data[i]['color'])
-
-      statRect
-        .append('text')
-        .attr('class', 'player_details3')
-        .style('font-size', '18px')
-        // .text('GP  MIN  FGM  FGA  FGPCT  FG3M  FG3A  FG3PCT  FTA  FTPCT  OREB  DREB  REB  AST  STL  BLK  TO  PTS')
-        .text(d => 'Pts:  ' + data[i]['22'] + '   |   ' + 'Reb:  ' + data[i]['17'] + '   |   ' + 'Ast:  ' + data[i]['18'] + '   |   ' + 'Stl:  ' + data[i]['19'] + '   |   ' + 'Blk:  ' + data[i]['20'] + '   |   ' + 'TOV:  ' + data[i]['21'] + '   |   ' + 'GP:  ' + data[i]['4'] + '   |   ' + 'Min:  ' + data[i]['5'])
-
-      statRect2
-        .append('text')
-        .attr('class', 'player_details4')
-        .style('font-size', '17px')
-        // .text(d => data[i]['4'] + '   ' + data[i]['5'] + '    ' + data[i]['6'] + '      ' + data[i]['7'] + '    ' + data[i]['8'] + '    ' + data[i]['9'] + '    ' + data[i]['10'] + ' ' + data[i]['11'] + ' ' + data[i]['12'] + ' ' + data[i]['13'] + ' ' + data[i]['14'] + ' ' + data[i]['15'] + ' ' + data[i]['16'] + ' ' + data[i]['17'] + ' ' + data[i]['18'] + ' ' + data[i]['19'] + ' ' + data[i]['20'] + ' ' + data[i]['21'] + ' ' + data[i]['22'])
-        .text(d => 'Advanced:    Eff_Rank:  ' + data[i]['1'] + '    |    ' + 'Eff:  ' + data[i]['23'] + '    |    ' + 'Fg_Pct:  ' + data[i]['8'] + '    |    ' + 'Fg3_Pct:  ' + data[i]['11'] + '    |    ' + 'Ft_Pct:  ' + data[i]['14'])
-
-      window.scrollBy(0, 100);
-    });
     
   leaf.append("text")
   .style('fill', 'white')

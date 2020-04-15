@@ -225,10 +225,25 @@ line#limit {
   width: 350px;
   position: absolute;
   left: 70px;
-  top: 55px;
+  top: 50px;
   border-radius: 10px;
   z-index: 1;
   border: 3px solid white;
+}
+
+#info2 {
+  display: none;
+  position: absolute;
+  left: 165px;
+  top: 470px;
+  z-index: 1;
+  padding: 8px 15px;
+  background: whitesmoke;
+  color: black;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 #info strong {
@@ -274,6 +289,7 @@ line#limit {
   font-size: 17px;
   outline: none;
   margin-bottom: 2px;
+  border-radius: 8px;
 }
 
 .bar {
@@ -314,9 +330,10 @@ line#limit {
   }
 }
 
-/* #pts {
-  display: none;
-} */
+#pts {
+  /* display: none; */
+  position: relative;
+}
 
 #bar_rebs {
   display: none;
