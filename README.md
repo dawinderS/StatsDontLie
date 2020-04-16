@@ -1,11 +1,24 @@
 # Stats Don't Lie
+Stats Don't Lie is an interactive, comprehensive data visualization of the top NBA players of the current season (2019-2020 fully updated). It utilizes the D3 library to create the bubble and bar charts, as well as the individual player statistics. Statistics vary between total efficiency, points, rebounds, assists etc. A fully functioning music player (containing some of the best songs of 2020) is also implemented.
 
-A comprehensive data visual of the top NBA players of the current season (2019-2020 fully updated). Statistics vary between total efficiency, points, rebounds, and assists. Clicking on indvidual player shows a fully detailed overlook on player's averages - this includes field goal percentages, offensive and defensive rebounds, turnovers, steals, and more. 
+## Technologies
+- Javascript (ES6)
+- HTML5
+- CSS3
+- D3.js
+- Webpack
 
-### How is the data portrayed?
-Data is portrayed using two different data visuals: 1) Bubble chart of top 30 players in pts, rebs, and asts and 2) Bar graph of the same but with only top 15 players to truly show the best of the best. Clicking on either a player bubble or bar will display their full statistics so user can compare with other players as previously stated
+## Features (how is the data portrayed?)
+The data is portrayed utlizing three different tools --> bubble chart, bar charts, and statistical infographics (all created using the D3.js library).
 
-### Additional functionality - MUSIC!
-Checking statistics in silence is boring! In the navbar there is a fully functioning music player with the top hip hop songs of 2020 so user can listen to some nice tunes while going over the data.
+### D3 Bubble chart
+The bubble chart consists of the top 30 players in total efficiency during the entire season, with each bubble representing a player and the bubble's radius representing their efficiency. To better illustrate to a user, the interior of each bubble contains player's rank compared to rest and their name while also being outlined with player's team color.
 
+### D3 Bar graph
+The bar graph consists of the top 15 players in the category the user clicks on to display. Categories include points, rebounds, assists, steals, and blocks. The y-axis labels the players from best to worst, and the x-axis gives a range of selected category (i.e. points). Each bar contains player's name inside and the categoty value outside the bar, and has the player's team.
 
+### Statistic infographic
+Clicking on either a player bubble or bar will display the player's complete statistics below the graph. User can click on multiple bubbles or bars to compare players.
+
+### Additional feature - MUSIC
+Checking statistics in silence is boring! In the navbar there is a fully functioning music player with the top hip-hop songs of 2020 so user can listen to some nice tunes while going over the data.
