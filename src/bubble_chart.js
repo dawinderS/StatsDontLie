@@ -11,7 +11,7 @@ export const bubble_chart = () => {
   let height = 640;
   let pack = d3.pack().size([1000, 640]).padding(3);
   let data = stats.sort((a,b) => b['23'] - a['23']).slice(0, 30);
-  console.log(data)
+
   let hierarchy1 = d3.hierarchy({ children: data }).sum(d => d['23']);
   for (let i = 0; i < data.length; i++) {
     data[i].rank = i + 1;
@@ -167,8 +167,27 @@ export const bubble_chart = () => {
         .style('font-size', '17px')
         // .text(d => data[i]['4'] + '   ' + data[i]['5'] + '    ' + data[i]['6'] + '      ' + data[i]['7'] + '    ' + data[i]['8'] + '    ' + data[i]['9'] + '    ' + data[i]['10'] + ' ' + data[i]['11'] + ' ' + data[i]['12'] + ' ' + data[i]['13'] + ' ' + data[i]['14'] + ' ' + data[i]['15'] + ' ' + data[i]['16'] + ' ' + data[i]['17'] + ' ' + data[i]['18'] + ' ' + data[i]['19'] + ' ' + data[i]['20'] + ' ' + data[i]['21'] + ' ' + data[i]['22'])
         .text(d => 'Advanced:    Eff_Rank:  ' + data[i]['1'] + '    |    ' + 'Eff:  ' + data[i]['23'] + '    |    ' + 'Fg_Pct:  ' + data[i]['8'] + '    |    ' + 'Fg3_Pct:  ' + data[i]['11'] + '    |    ' + 'Ft_Pct:  ' + data[i]['14'])
-
-      window.scrollBy(0, 150);
+      
+        console.log(document.querySelector('#deets').clientHeight > 142)
+      // if (document.querySelector('.deets').clientHeight > 142) {
+      //   document.querySelector('.deets').style.display = 'flex'
+      //   window.scrollBy(0, 150);
+      // } else {
+      //   document.querySelector('.deets').style.display = 'none'
+      // }
+      if (document.querySelector('#deets').style.display !== 'none' && document.querySelector('#deets').clientHeight < 142) {
+        document.querySelector('#deets').style.display = 'none'
+        document.querySelector('.detail').id = 'first'
+        document.querySelector('.detail2').id = 'two'
+        document.querySelector('.detail3').id = 'three'
+      } else {
+        document.querySelector('#first').style.display = 'none'
+        document.querySelector('#two').style.display = 'none'
+        document.querySelector('#three').style.display = 'none'
+        document.querySelector('#deets').style.display = 'flex'
+        window.scrollBy(0, 90);
+        
+      }
     });
     
     

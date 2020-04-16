@@ -221,14 +221,18 @@ line#limit {
 
 #info {
   background: rgb(73, 72, 72);
-  height: 465px;
-  width: 350px;
+  min-height: 485px;
+  /* min-height: 50vh; */
+  width: 360px;
   position: absolute;
   left: 70px;
   top: 50px;
   border-radius: 10px;
   z-index: 1;
   border: 3px solid white;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
 }
 
 #info2 {
@@ -251,12 +255,14 @@ line#limit {
   font-size: 35px;
   padding: 5px 20px;
   border-bottom: 2px solid white;
+  max-height: 20%;
 }
 
 #info-mid {
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 10px;
+  max-height: 20%;
 }
 
 #info-mid li {
@@ -273,6 +279,7 @@ line#limit {
   align-items: center;
   justify-content: space-evenly;
   margin-top: 21px;
+  max-height: 20%;
 }
 
 #info-footer a img{
