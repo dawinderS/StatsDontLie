@@ -15,7 +15,7 @@
     "d3-queue": "^3.0.7",
     "d3-tip": "^0.9.1",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {},
   "repository": {
